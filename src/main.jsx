@@ -8,7 +8,7 @@ import ErrorPage from "./error-page";
 import Home from "./routes/home";
 import Services from "./routes/services";
 import Gallery from "./routes/gallery";
-import Contact from "./routes/contact";
+import Contact from "./routes/Contact";
 
 const router = createBrowserRouter([
   {
