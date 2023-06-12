@@ -7,8 +7,9 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Home from "./routes/home";
 import Services from "./routes/services";
-import Gallery from "./routes/gallery";
+import Gallery, { loader as servicesLoader } from "./routes/gallery";
 import Contact from "./routes/Contact";
+import Service from "./routes/Service"
 
 const router = createBrowserRouter([
   {
@@ -26,16 +27,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <Services />
-      },
-      {
-        path: "/gallery",
-        element: <Gallery />
+        element: <Gallery />,
+        loader: servicesLoader,
+        
       },
       {
         path: "/contact",
         element: <Contact />
       },
+      {
+        path: "services/:service",
+        element: <Service />
+      }
     ]
   },
 ]);

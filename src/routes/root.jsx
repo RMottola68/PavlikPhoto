@@ -8,6 +8,7 @@ import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import { Facebook, Instagram, Yelp  } from "react-bootstrap-icons";
 import treesBG from "../assets/treesbg.jpg"
+import PavLogo from "../assets/PavLogo.png"
 
 
 const sectionStyle = {
@@ -38,7 +39,7 @@ export default function Root() {
         .then(data => setLogo(data))
     },[])
 
-      console.log(logo[0])
+    //   console.log(logo[0])
 
       const strokeStyle = {
         color: "white",
@@ -61,7 +62,7 @@ export default function Root() {
                                 key={logo.id}
                                 style={{margin: "auto", height: "60%", width: "auto"}}
                                 className=""
-                                src={logo[0].guid.rendered}
+                                src={PavLogo}
                                 alt="Pavlik Logo"
                                 image={logo}
                             />
@@ -72,9 +73,6 @@ export default function Root() {
                             </Nav.Item>
                             <Nav.Item className="nav-item m-3 ">
                                 <Link to={`services`} className="text-decoration-none fs-5" style={strokeStyle}>Services</Link>
-                            </Nav.Item>
-                            <Nav.Item className="nav-item m-3 ">
-                                <Link to={`gallery`} className="text-decoration-none fs-5" style={strokeStyle}>Gallery</Link>
                             </Nav.Item>
                             <Nav.Item className="nav-item m-3 ">
                                 <Link to={`contact`} className="text-decoration-none fs-5" style={strokeStyle}>Contact</Link>

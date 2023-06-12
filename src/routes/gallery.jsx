@@ -1,39 +1,44 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useLoaderData, useOutletContext, Link, Outlet } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image';
 
+export async function loader(){
+    const services = await fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search="thumbnail"`)
+
+    return services.json();
+}
+
 export default function Gallery({}){
+    const thumbImages = useLoaderData();
 
-
-    const [thumbImages, setThumbImages] = useState([]);
-    useEffect(()=>{
-        fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search="thumbnail"`)
-          .then(res=>res.json())
-          .then(data => setThumbImages(data))
-    },[])
-    //   console.log(thumbImages)
+    // const [thumbImages, setThumbImages] = useState([]);
+    // useEffect(()=>{
+    //     fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search="thumbnail"`)
+    //       .then(res=>res.json())
+    //       .then(data => setThumbImages(data))
+    // },[])
+    // console.log(thumbImages[0].caption.rendered)
     return(        
             <Container className="my-5 d-flex justify-content-center border ">
                 <Row className="text-center">
-                <Row className="my-2 border-light border border-5 text-center justify-content-center bg-dark" style={{borderRadius: "30px"}}>
+                    
 
-                        </Row>
                         
-                        {/* {thumbImages.map((thumbImage) =>{
+                        
+                        {thumbImages.map((thumbImage) =>{
+                            let thumbLink = thumbImage.caption.rendered.split(" ")[0].slice(3)
+                            console.log(thumbLink)
                             return(
-                                <Col xs={12} md={6} lg={4} className="my-2 d-flex justify-content-center" key={image.id} fluid >
-                                    <Image src={thumbImage.guid.rendered} game={thumbImage} key={thumbImage.id} style={{width:"330px", height:"auto", objectFit: 'cover', borderRadius: "10px"}} />                  
+                                <Col xs={12} md={6} xl={4} className="my-2 d-flex justify-content-center" key={thumbImage.id} >
+                                    <Link to={`/services/${thumbLink}`} style={{objectFit: 'cover'}} ><Image src={thumbImage.guid.rendered} game={thumbImage} key={thumbImage.id} style={{width:"auto", height:"400px", objectFit: 'cover', borderRadius: "10px"}} />     </Link>             
                                 </Col>
                             )
-                        })} */}
-                        
-                    {/* <Col md={6} className="d-flex align-items-center">
-                        <img src={images[1].guid.rendered} style={{width:"100%"}}/>
-                    </Col> */}
+                        })}
+                    
                 </Row>
 
     
