@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button'
+
 import { Facebook, Instagram, Yelp  } from "react-bootstrap-icons";
 import treesBG from "../assets/treesbg.jpg"
 import PavLogo from "../assets/PavLogo.png"
