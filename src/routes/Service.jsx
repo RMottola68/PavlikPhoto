@@ -18,8 +18,14 @@ export default function Service() {
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
   const [showImageModal, setShowImageModal] = useState(undefined);
-  const handleCloseImageModal = (id) => setShowImageModal(undefined);
-  const handleShowImageModal = (id) => setShowImageModal(id);
+  const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
+  const [fullscreen, setFullscreen] = useState(true);
+
+  const handleCloseImageModal = (id, breakpoint) => setShowImageModal(undefined);
+  const handleShowImageModal = (id) => {
+    setShowImageModal(id);
+    setFullscreen(breakpoint);
+  }
 
   const { service } = useParams()
   console.log(service)
@@ -43,11 +49,12 @@ export default function Service() {
           // console.log(image.caption.rendered.includes('thumbnail'))
           return(
               <Col xs={12} md={6} xl={4} className="my-2 d-flex justify-content-center" key={image.id} >
-                <Image src={image.guid.rendered} key={image.id} style={{width:"75%", height:"auto", objectFit: 'cover', borderRadius: "10px"}} onClick={() => handleShowImageModal(image.id)}/>
-                <Modal show={showImageModal === image.id} onHide={handleCloseImageModal} className="d-flex " centered>
-                    <XCircleFill color="white" size={35} className="m-1 position-absolute" onClick={() => handleCloseImageModal()} />
-                    <Image src={image.guid.rendered} key={image.id} style={{width:"100%", height:"auto"}} />
-
+                <Image src={image.guid.rendered} key={image.id} className="" style={{width:"100%", height:"auto", objectFit: 'cover', borderRadius: "10px", }} onClick={() => handleShowImageModal(image.id)}/>
+                <Modal show={showImageModal === image.id} fullscreen={fullscreen} onHide={handleCloseImageModal} className=""  centered >
+                                      
+                  <XCircleFill color="white" size={35} className="m-1 position-absolute" onClick={() => handleCloseImageModal()} />
+                  <Image src={image.guid.rendered} key={image.id} className="" onClick={() => handleCloseImageModal()} style={{ maxHeight: "850px", width: "100%", marginTop:"50px", objectFit:"contain"}} />
+                  
                 </Modal>
                       
               </Col>

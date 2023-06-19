@@ -4,3 +4,29 @@
   padding: 0;
   font-family: sans-serif;
 }
+
+/* .fade .modal .show {
+  
+  overflow:hidden;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.modal-dialog .modal-dialog-centered{
+  box-sizing: border-box;
+  margin-right: 0px;
+  margin-left: 0px;
+
+}
+
+.modal-dialog-centered{
+  box-sizing: border-box;
+  margin-right: 0px;
+  margin-left: 0px;
+
+} */
+
+.modal-content {
+  background-color: transparent;
+  width: 100%;
+}

@@ -24,7 +24,7 @@ export default function Gallery({}){
     // },[])
     // console.log(services[0].caption.rendered)
     return(        
-            <Container className="my-5 d-flex justify-content-center border ">
+            <Container className="my-5 d-flex justify-content-center ">
                 <Row className="text-center">
                         
                         
@@ -33,7 +33,7 @@ export default function Gallery({}){
                             // console.log(service)
                             return(
                                 <Col xs={12} md={6} xl={4} className="my-2 d-flex justify-content-center" key={service.id} >
-                                    <Link to={`/services/${thumbLink}`} style={{objectFit: 'cover'}}  ><Image src={service.guid.rendered} key={service.id} style={{width:"auto", height:"400px", objectFit: 'cover', borderRadius: "10px"}} />     </Link>             
+                                    <Link to={`/services/${thumbLink}`} ><Image src={service.guid.rendered} key={service.id} style={{width:"auto", height:"400px", objectFit: 'cover', borderRadius: "10px"}} />     </Link>             
                                 </Col>
                             )
                         })}
