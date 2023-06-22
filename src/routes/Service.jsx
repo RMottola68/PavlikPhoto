@@ -28,9 +28,10 @@ export default function Service() {
   }
 
   const { service } = useParams()
-  console.log(service)
+  // console.log(service)
 
   const [serviceImages, setServiceImages] = useState([]);
+  const [serviceWords, setServiceWords] = useState([]);
 
     useEffect(()=>{
         fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search="${service}"`)
@@ -38,16 +39,31 @@ export default function Service() {
           .then(data => setServiceImages(data))
     },[])
 
-  // console.log(serviceImages)
+
+    useEffect(()=>{
+      const options = {
+        method: "GET",
+        headers: {'content-type': 'application/json; charset=utf-8'}
+    };
+      fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/pages?slug="${service}"`, options)
+        .then(res=>res.json())
+        .then(data => setServiceWords(data))
+  },[])
+
+  console.log(serviceWords)
+  console.log(service)
 
   return (
     <Container className="my-5 d-flex justify-content-center border ">
       <Row className="text-center">
+        {/* dangerouslySetInnerHTML will turn translate the strange characters from the json payload to proper utf-8 charset */}
+        {serviceWords.length > 0 ? <Col xs={12} dangerouslySetInnerHTML={{__html: serviceWords[0].content.rendered}} /> : <Col xs={12}>Loading...</Col> }
         {serviceImages.map((image) =>{
           if(!image.caption.rendered.includes('thumbnail')){ 
           // let thumbLink = image.caption.rendered
           // console.log(image.caption.rendered.includes('thumbnail'))
           return(
+
               <Col xs={12} md={6} xl={4} className="my-2 d-flex justify-content-center" key={image.id} >
                 <Image src={image.guid.rendered} key={image.id} className="" style={{width:"100%", height:"auto", objectFit: 'cover', borderRadius: "10px", }} onClick={() => handleShowImageModal(image.id)}/>
                 <Modal show={showImageModal === image.id} fullscreen={fullscreen} onHide={handleCloseImageModal} className=""  centered >

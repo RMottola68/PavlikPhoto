@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Gallery />,
-        loader: servicesLoader,
+        loader: servicesLoader
         
       },
       {

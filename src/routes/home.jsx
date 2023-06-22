@@ -22,13 +22,14 @@ export default function Home({}){
                     <Col className="d-flex justify-content-center align-items-center p-5 ">
                         <Carousel variant="dark">
                             {homeImages.map((homeImage) =>{
+                                console.log(homeImage)
                                 return(
 
                                     <Carousel.Item className="text-align-center"  >
                                         <Image
                                         key={homeImage.id}
-                                        style={{margin: "auto"}}
-                                        className="d-block h-50 w-50"
+                                        style={{margin: "auto", maxHeight: "500px"}}
+                                        className="d-block"
                                         src={homeImage.guid.rendered}
                                         alt="Carousel slide"
                                         image={homeImage}
