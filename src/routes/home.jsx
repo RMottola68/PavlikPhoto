@@ -18,19 +18,19 @@ export default function Home({}){
       },[])
     return(        
             <Container className="my-5 justify-content-center"  >
-                <Row className="d-flex justify-content-center align-items-center "><h1 className="text-center">Welcome to Pavlik Photo and Design!</h1></Row>
+                <Row className="d-flex justify-content-center align-items-center "><h1 className="text-center fw-bold">Welcome to Pavlik Photo and Design!</h1></Row>
                 <Row className="text-center ">
-                    <Col className="d-flex justify-content-center align-items-center p-5 ">
-                        <Carousel  className="" slide={true} touch={true} style={{}}>
+                    <Col className="justify-content-center p-5 ">
+                        <Carousel className="d-block" slide={true} touch={true} style={{}}>
                             {homeImages.map((homeImage) =>{
                                let url = homeImage.caption.rendered.split(" ")[0].slice(3)
                                 return(
 
-                                    <Carousel.Item className="text-align-center" style={{}}>
+                                    <Carousel.Item className="text-align-center bg-black" style={{}}>
                                         <Link to={`/services/${url}`} >
                                             <Image
                                                 key={homeImage.id}
-                                                style={{margin: "auto", maxHeight: "550px", marginRigt: -1, borderRadius:"10px"}}
+                                                style={{margin: "auto", maxHeight: "600px", width: "100%", marginRigt: -1, borderRadius:"10px", objectFit: "contain"}}
                                                 className="d-block "
                                                 src={homeImage.guid.rendered}
                                                 alt="Carousel slide"

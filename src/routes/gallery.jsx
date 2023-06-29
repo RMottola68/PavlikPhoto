@@ -27,7 +27,7 @@ export default function Gallery({}){
             <Container className="my-5 d-flex justify-content-center ">
                 <Row className="text-center">
                         
-                        
+                        <Col xs={12}><h1 className="fw-bold ">Services</h1></Col>
                         {services.map((service) =>{
                             let thumbLink = service.caption.rendered.split(" ")[0].slice(3)
                             // console.log(service)

@@ -64,7 +64,7 @@ export default function Service() {
   return (
     <Container className="my-5 d-flex justify-content-center border ">
       <Row className="text-center">
-        <Col xs={12}><h1>{service}</h1></Col>
+        <Col xs={12}><h1 className="fw-bold">{service}</h1></Col>
 
         {/* dangerouslySetInnerHTML will turn translate the strange characters from the json payload to proper utf-8 charset */}
         {serviceWords.length > 0 ? 

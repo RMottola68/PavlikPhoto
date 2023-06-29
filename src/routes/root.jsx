@@ -84,7 +84,7 @@ export default function Root() {
                             </Nav.Item>
                         </Col >
                         <Col xs={12} xl={3} className="d-flex p-2 justify-content-xl-end justify-content-center align-items-center">
-                        <a href="https://www.facebook.com/pavlikphotography/"><Facebook color="white" size={35} className="mx-1" ></Facebook></a>
+                        <a href="https://www.facebook.com/pavlikphotography/" target="_blank"><Facebook color="white" size={35} className="mx-1" ></Facebook></a>
                             {/* <Instagram color="black" size={35} className="mx-1" />
                             <Yelp color="red" size={35} className="mx-1" /> */}
                         </Col>

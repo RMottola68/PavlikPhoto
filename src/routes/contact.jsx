@@ -9,6 +9,7 @@ export default function Contact(){
             <Container className="my-5 justify-content-center">
                 <Row className="text-center m-3">
                     <Col>
+                        <h1 className="fw-bold">Book Now</h1>
                         <Telephone color="black" size={35} className="mx-1" />Phone: 607-779-2220
                         <br />
                         <Envelope color="black" size={35} className="mx-1" />Email: Andrew@pavlikphotoanddesign.com
