@@ -57,15 +57,17 @@ export default function Root() {
                         activeKey="/home"
                         onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
                     >
-                        <Col xs={12} xl={3} className="d-flex text-xl-start text-center align-items-center">
-                            <Image
-                                key={logo.id}
-                                style={{margin: "auto", height: "60%", width: "auto"}}
-                                className=""
-                                src={PavLogo}
-                                alt="Pavlik Logo"
-                                image={logo}
-                            />
+                        <Col xs={12} xl={3} className="d-flex text-xl-start justify-content-center text-center align-items-center">
+                            <Link to={`/home`} className="">
+                                <Image
+                                    key={logo.id}
+                                    style={{height: "60%", width: "auto"}}
+                                    className=""
+                                    src={PavLogo}
+                                    alt="Pavlik Logo"
+                                    image={logo}
+                                />
+                            </Link>
                         </Col>
                         <Col xs={12} xl={6} className="d-flex justify-content-xl-center justify-content-center align-items-center">
                             <Nav.Item className="nav-item m-3 ">
@@ -82,7 +84,7 @@ export default function Root() {
                             </Nav.Item>
                         </Col >
                         <Col xs={12} xl={3} className="d-flex p-2 justify-content-xl-end justify-content-center align-items-center">
-                            <Facebook color="white" size={35} className="mx-1" />
+                        <a href="https://www.facebook.com/pavlikphotography/"><Facebook color="white" size={35} className="mx-1" ></Facebook></a>
                             {/* <Instagram color="black" size={35} className="mx-1" />
                             <Yelp color="red" size={35} className="mx-1" /> */}
                         </Col>

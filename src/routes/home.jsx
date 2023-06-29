@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
 import Carousel from 'react-bootstrap/Carousel';
 import Row from 'react-bootstrap/Row'
@@ -17,23 +17,26 @@ export default function Home({}){
           .then(data => setHomeImages(data))
       },[])
     return(        
-            <Container className="my-5 d-flex justify-content-center border"  >
+            <Container className="my-5 justify-content-center"  >
+                <Row className="d-flex justify-content-center align-items-center "><h1 className="text-center">Welcome to Pavlik Photo and Design!</h1></Row>
                 <Row className="text-center ">
                     <Col className="d-flex justify-content-center align-items-center p-5 ">
-                        <Carousel variant="dark">
+                        <Carousel  className="" slide={true} touch={true} style={{}}>
                             {homeImages.map((homeImage) =>{
-                                console.log(homeImage)
+                               let url = homeImage.caption.rendered.split(" ")[0].slice(3)
                                 return(
 
-                                    <Carousel.Item className="text-align-center"  >
-                                        <Image
-                                        key={homeImage.id}
-                                        style={{margin: "auto", maxHeight: "500px"}}
-                                        className="d-block"
-                                        src={homeImage.guid.rendered}
-                                        alt="Carousel slide"
-                                        image={homeImage}
-                                        />
+                                    <Carousel.Item className="text-align-center" style={{}}>
+                                        <Link to={`/services/${url}`} >
+                                            <Image
+                                                key={homeImage.id}
+                                                style={{margin: "auto", maxHeight: "550px", marginRigt: -1, borderRadius:"10px"}}
+                                                className="d-block "
+                                                src={homeImage.guid.rendered}
+                                                alt="Carousel slide"
+                                                image={homeImage}
+                                            />
+                                        </Link>
                                     </Carousel.Item>
                                 )
                             })}
