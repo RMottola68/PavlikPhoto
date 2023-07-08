@@ -99,7 +99,7 @@ export default function Contact(){
 
                             </Modal.Footer>
                         </Modal>
-                        </Col>
+                    </Col>
                     <Col>
                         <div id={"map-container-google-1"} className={"d-flex z-depth-1-half map-container justify-content-center py-5"} >
                             <iframe title="PAVMAP" width="1000" height="600" loading="lazy" 

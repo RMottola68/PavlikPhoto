@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import * as ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
-import Root from "./routes/root";
+import Root, {loader as logoLoader} from "./routes/root";
 import ErrorPage from "./error-page";
 import Home from "./routes/home";
 import Services from "./routes/services";
@@ -13,26 +13,27 @@ import Service from "./routes/Service"
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: logoLoader,
     children: [
       {
         index: true,
         element: <Home />
       },
       {
-        path: "/home",
+        path: "home",
         element: <Home />
       },
       {
-        path: "/services",
+        path: "services",
         element: <Gallery />,
         loader: servicesLoader
         
       },
       {
-        path: "/contact",
+        path: "contact",
         element: <Contact />
       },
       {
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
       }
     ]
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation } from "react-router-dom";
+import { Outlet, Link, useLoaderData } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 
-import { Facebook, Instagram, Yelp  } from "react-bootstrap-icons";
-import treesBG from "../assets/treesbg.jpg"
-import PavLogo from "../assets/PavLogo.png"
+import { Facebook } from "react-bootstrap-icons";
 
 
-const sectionStyle = {
-    backgroundImage: `url(${treesBG})`,
-    height: "100vh",
-    width: "100vw",
-    backgroundAttachment: "fixed"
-}
+// const sectionStyle = {
+//     backgroundImage: `url(${treesBG})`,
+//     height: "100vh",
+//     width: "100vw",
+//     backgroundAttachment: "fixed"
+// }
 
 const strokeStyle = {
     fill:"none",
@@ -28,27 +26,35 @@ const strokeStyle = {
     textAnchor:"middle"
 }
 
+export async function loader(){
+
+    const root = await fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search="root"`)
+  
+                    
+
+
+    return root.json();
+}
+
 export default function Root() {
+    const logo = useLoaderData()[0];
+    const background = useLoaderData()[1];
 
-    // https://example.com/wp-json/wp/v2/media
-    const [logo, setLogo] = useState([]);
+    // useEffect(()=>{
+    // fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search=background`)
+    //     .then(res=>res.json())
+    //     .then(data => setBackground(data))        
+    // },[])
 
-    useEffect(()=>{
-    fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/media?search=Nav`)
-        .then(res=>res.json())
-        .then(data => setLogo(data))
-    },[])
-
-    //   console.log(logo[0])
-
-      const strokeStyle = {
+    console.log(background.guid.rendered)
+    const strokeStyle = {
         color: "white",
         textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000",
         fontWeight: "bold",
     }
 
     return(
-        <div className="vh-100 " style={sectionStyle}>
+        <div className="vh-100 " style={{backgroundImage: `url(${background.guid.rendered})`, height: "100vh", width: "100vw", backgroundAttachment: "fixed"}}>
             <Container className="bg-light vh-100 overflow-auto ">
                 <Row >
                     <Nav
@@ -63,9 +69,8 @@ export default function Root() {
                                     key={logo.id}
                                     style={{height: "60%", width: "auto"}}
                                     className=""
-                                    src={PavLogo}
+                                    src={logo.guid.rendered}
                                     alt="Pavlik Logo"
-                                    image={logo}
                                 />
                             </Link>
                         </Col>
