@@ -1,7 +1,7 @@
 import * as React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import './index.css'
 import Root, {loader as logoLoader} from "./routes/root";
 import ErrorPage from "./error-page";
@@ -11,7 +11,7 @@ import Gallery, { loader as servicesLoader,  } from "./routes/gallery";
 import Contact from "./routes/Contact";
 import Service from "./routes/Service"
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "*",
     element: <Root />,
