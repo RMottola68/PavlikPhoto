@@ -112,7 +112,7 @@ export default function Service() {
               
           )}
         })}
-        <Col>                
+        <Col xs={12}>                
           <Button variant="primary" onClick={handleShowFormModal} size="lg">
             Contact Us!
           </Button>
