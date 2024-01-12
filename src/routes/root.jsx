@@ -87,6 +87,9 @@ export default function Root() {
                             <Nav.Item className="nav-item m-3 ">
                                 <a href={"https://www.pavlikphotostore.com"} target="_blank" className="text-white text-decoration-none fs-5" style={strokeStyle}>Store</a>
                             </Nav.Item>
+                            <Nav.Item className="nav-item m-3 ">
+                                <Link to={`shop`} className="text-decoration-none fs-5" style={strokeStyle}>Shop</Link>
+                            </Nav.Item>
                         </Col >
                         <Col xs={12} xl={3} className="d-flex p-2 justify-content-xl-end justify-content-center align-items-center">
                         <a href="https://www.facebook.com/pavlikphotography/" target="_blank"><Facebook color="white" size={35} className="mx-1" ></Facebook></a>

@@ -10,6 +10,7 @@ import Services from "./routes/services";
 import Gallery, { loader as servicesLoader,  } from "./routes/gallery";
 import Contact from "./routes/contact";
 import Service from "./routes/Service"
+import Shop from "./routes/shop"
 
 const router = createHashRouter([
   {
@@ -33,6 +34,10 @@ const router = createHashRouter([
         
       },
       {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
         path: "contact",
         element: <Contact />
       },
@@ -41,6 +46,7 @@ const router = createHashRouter([
         element: <Service />,
         loader: servicesLoader
       }
+
     ]
   },
 
