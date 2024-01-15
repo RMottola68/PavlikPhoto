@@ -67,7 +67,7 @@ export default function Service() {
       fetch(`https://pavlikphotoanddesign.com/wp-json/wp/v2/pages?slug="${service}"`, options)
         .then(res=>res.json())
         .then(data => setServiceWords(data))
-  },[])
+    },[])
 
   // console.log(serviceWords)
   // console.log(service)
@@ -83,7 +83,7 @@ export default function Service() {
       <Row className="text-center">
         <Col xs={12}><h1 className="fw-bold">{service}</h1></Col>
 
-        {/* dangerouslySetInnerHTML will turn translate the strange characters from the json payload to proper utf-8 charset */}
+        {/* dangerouslySetInnerHTML will translate the strange characters from the json payload to proper utf-8 charset */}
         {serviceWords.length > 0 ? 
           <Col xs={12}>
                 <h4 dangerouslySetInnerHTML={{__html: serviceWords[0].content.rendered}}></h4>

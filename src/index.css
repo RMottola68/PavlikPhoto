@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: Georgia, serif;
+  overflow-y: hidden;
 }
 
 /* .fade .modal .show {
@@ -30,3 +31,4 @@
   background-color: transparent;
   width: 100%;
 }
+
