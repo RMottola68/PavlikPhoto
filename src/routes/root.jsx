@@ -85,10 +85,10 @@ export default function Root() {
                                 <Link to={`contact`} className="text-decoration-none fs-5" style={strokeStyle}>Contact</Link>
                             </Nav.Item>
                             <Nav.Item className="nav-item m-3 ">
-                                <Link to={`shop`} className="text-decoration-none fs-5" style={strokeStyle}>Shop</Link>
+                                <Link to={`shop`} className="text-decoration-none fs-5" style={strokeStyle}>Print</Link>
                             </Nav.Item>
                             <Nav.Item className="nav-item m-3 ">
-                                <a href={"https://www.pavlikphotostore.com"} target="_blank" className="text-white text-decoration-none fs-5" style={strokeStyle}>Store</a>
+                                <a href={"https://www.pavlikphotostore.com"} target="_blank" className="text-white text-decoration-none fs-5" style={strokeStyle}>Event-Store</a>
                             </Nav.Item>
 
                         </Col >
