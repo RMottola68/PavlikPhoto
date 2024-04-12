@@ -9,20 +9,21 @@ import Image from 'react-bootstrap/Image';
 import Modal from 'react-bootstrap/Modal';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import emailjs from '@emailjs/browser';
 
 export default function Home({}){  
     const form = useRef();
     const [showAlert, setShowAlert] = useState(false);
     const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm(`${import.meta.env.VITE_SERVICE}`, `${import.meta.env.VITE_TEMPLATE}`, form.current, `${import.meta.env.VITE_PUBLIC}`)
-        .then((result) => {
-            e.target.reset();
-            setShowAlert(true)
-        }, (error) => {
-            console.log(error.text);
-        });
-    };
+        e.preventDefault();
+        emailjs.sendForm(`${import.meta.env.VITE_SERVICE}`, `${import.meta.env.VITE_TEMPLATE}`, form.current, `${import.meta.env.VITE_PUBLIC}`)
+            .then((result) => {
+                e.target.reset();
+                setShowAlert(true)
+            }, (error) => {
+                console.log(error.text);
+            });
+        };
 
     const [showFormModal, setShowFormModal] = useState(undefined)
     const handleCloseFormModal = (id) => setShowFormModal(undefined);
