@@ -65,7 +65,7 @@ export default function Root() {
                 <Row >
                 {['lg'].map((expand) => (
                     
-                    <Navbar fixed="top" key={expand} expand={expand} className="inline-flex bg-secondary mb-3" >
+                    <Navbar fixed="top" key={expand} expand={expand} className="inline-flex bg-secondary mb-3" collapseOnSelect>
                     <Container fluid >
                         <Navbar.Brand  href="#" xs={12} lg={3}>
                             <Col className="d-flex text-xl-start px-3 align-items-center">
@@ -82,30 +82,30 @@ export default function Root() {
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className="text-center bg-light" />
                         <Navbar.Offcanvas
-                            className="bg-secondary "
+                            className="bg-secondary"
                             id={`offcanvasNavbar-expand-${expand}`}
                             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                             placement="end"
                         >
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} className="alight-items-center text-decoration-none fs-5 " style={strokeStyle}>
+                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} className="align-items-center text-decoration-none fs-5 " style={strokeStyle}>
                             Navigation
                             </Offcanvas.Title>
                         </Offcanvas.Header>
-                        <Offcanvas.Body className="">
-                            <Nav className="w-100 d-flex align-items-center justify-content-end">
+                        <Offcanvas.Body className="" >
+                            <Nav className="w-100 d-flex align-items-center justify-content-end" >
                                 
-                                    <Nav.Item className="nav-item m-3 ">
-                                        <Link to={`home`} className="text-decoration-none fs-5" style={strokeStyle}>Home</Link>
+                                    <Nav.Item className="nav-item m-3 " >
+                                        <Nav.Link to={`home`} className="text-decoration-none fs-5" style={strokeStyle} as={Link} eventKey="1" >Home</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="nav-item m-3 ">
-                                        <Link to={`services`} className="text-decoration-none fs-5" style={strokeStyle}>Services</Link>
+                                        <Nav.Link to={`services`} className="text-decoration-none fs-5" style={strokeStyle} as={Link} eventKey="2">Services</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="nav-item m-3 ">
-                                        <Link to={`contact`} className="text-decoration-none fs-5" style={strokeStyle}>Contact</Link>
+                                        <Nav.Link to={`contact`} className="text-decoration-none fs-5" style={strokeStyle} as={Link} eventKey="3">Contact</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="nav-item m-3 ">
-                                        <Link to={`shop`} className="text-decoration-none fs-5" style={strokeStyle}>Print</Link>
+                                        <Nav.Link to={`shop`} className="text-decoration-none fs-5" style={strokeStyle} as={Link} eventKey="4">Print</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="nav-item m-3 ">
                                         <a href={"https://www.pavlikphotostore.com"} target="_blank" className="text-white text-decoration-none fs-5" style={strokeStyle}>Event-Store</a>

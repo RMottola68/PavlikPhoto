@@ -37,7 +37,7 @@ export default function Shop({}){
 
             </Container>        */}
             <div xs={12} className="my-2 d-flex justify-content-center" style={{height: "100%"}}>
-                <iframe className="my-2 d-flex h-100" style={{margin: "auto", width: "100%"}} src={`https://pavlikphotoanddesign.com/shop/`} />
+                <iframe className="my-2 d-flex vh-100" style={{margin: "auto", width: "100%"}} src={`https://pavlikphotoanddesign.com/shop/`} />
             </div>
             
         </Container>       
