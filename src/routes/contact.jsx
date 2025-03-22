@@ -33,7 +33,7 @@ export default function Contact(){
                 <Row className="text-center m-3">
                     <Col>
                         <h1 className="fw-bold">Book Now</h1>
-                        <Telephone color="black" size={35} className="mx-1" />Phone: 607-779-2220
+                        <Telephone color="black" size={35} className="mx-1" />Phone: 607-761-3025
                         <br />
                         <Envelope color="black" size={35} className="mx-1" />Email: Andrew@pavlikphotoanddesign.com
                     </Col>
